@@ -7,7 +7,8 @@ class Main {
         GameCharacter[] characters = {
                 new Warrior("Arthur", 100, 50),
                 new Mage("Merlin", 80, 120),
-                new Archer("Robin", 90, 30)
+                new Archer("Robin", 90, 30),
+                new Dragon("Denis", 100, 90)
         };
 
         for (GameCharacter character : characters) {
@@ -16,16 +17,20 @@ class Main {
             System.out.println();
         }
 
-        for (GameCharacter character : characters) {
-            if (character instanceof Archer archer) {
-                archer.printInfo();
-                archer.addArrows(10);
-                archer.printInfo();
-            }
+        MagicUser[] magicUsers = {
+                new Mage("Mage-2", 50, 100),
+                new Dragon("Dragon-2", 120, 90)
+        };
+
+        for (MagicUser magicUser : magicUsers) {
+            magicUser.castSpell();
         }
 
         for (GameCharacter character : characters) {
-            attackCharacter(character);
+            if (character instanceof MagicUser magicUser) {
+                System.out.println(character.getName() + " умеет использовать магию!");
+                magicUser.castSpell();
+            }
         }
     }
 }

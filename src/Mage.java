@@ -1,4 +1,4 @@
-public class Mage extends GameCharacter {
+public class Mage extends GameCharacter implements MagicUser{
     private int mana;
 
     public Mage(String name, int health, int mana) {
@@ -20,5 +20,13 @@ public class Mage extends GameCharacter {
     void printInfo() {
         super.printInfo();
         System.out.println("Мана: " + mana);
+    }
+
+    @Override
+    public void castSpell() {
+        System.out.println(
+                "Маг " + this.getName() +
+                " использует мощное заклинание"
+        );
     }
 }

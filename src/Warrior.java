@@ -1,4 +1,4 @@
-class Warrior extends GameCharacter {
+class Warrior extends GameCharacter implements Defendable{
     private int armor;
 
     public Warrior(String name, int health, int armor) {
@@ -20,5 +20,13 @@ class Warrior extends GameCharacter {
     void printInfo() {
         super.printInfo();
         System.out.println("Броня: " + armor);
+    }
+
+    @Override
+    public void defend() {
+        System.out.println(
+                "Воин " + this.getName() +
+                " защищается щитом!"
+        );
     }
 }
