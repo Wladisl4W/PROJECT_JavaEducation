@@ -32,5 +32,66 @@ class Main {
                 magicUser.castSpell();
             }
         }
+
+        GameItem item1 =
+                new GameItem(
+                        "Dragon Sword",
+                        10,
+                        "Legendary"
+                );
+
+        GameItem item2 =
+                new GameItem(
+                        "Dragon Sword",
+                        10,
+                        "Legendary"
+                );
+
+        GameItem item3 =
+                new GameItem(
+                        "Wooden Sword",
+                        1,
+                        "Common"
+                );
+
+        System.out.println(item1);
+
+        System.out.println(item1 == item2);
+
+        System.out.println(
+                item1.equals(item2)
+        );
+
+        System.out.println(
+                item1.equals(item3)
+        );
+
+        System.out.println(
+                item1.hashCode()
+        );
+
+        System.out.println(
+                item2.hashCode()
+        );
+
+        System.out.println(item1);
+
+        System.out.println(item1 == item2);
+
+        System.out.println(
+                item1.equals(item2)
+        );
+
+        System.out.println(
+                item1.equals(item3)
+        );
+
+        System.out.println(
+                item1.hashCode()
+        );
+
+        System.out.println(
+                item2.hashCode()
+        );
     }
 }
