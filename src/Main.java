@@ -1,9 +1,13 @@
 class Main {
+    static  int parseLevel(String text) {
+        return Integer.parseInt(text);
+    }
+
     static void attackCharacter(GameCharacter character) {
         character.attack();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) { /*
         GameCharacter[] characters = {
                 new Warrior("Arthur", 100, 50),
                 new Mage("Merlin", 80, 120),
@@ -74,24 +78,45 @@ class Main {
                 item2.hashCode()
         );
 
-        System.out.println(item1);
+        GameItem item4 = item1;
 
-        System.out.println(item1 == item2);
+        System.out.println(item1 == item4);      // true
+        System.out.println(item1.equals(item4)); // true */
 
-        System.out.println(
-                item1.equals(item2)
-        );
+        Inventory inventory = new Inventory(1000);
+        inventory.addGold(500);
+        try {
+            inventory.spendGold(300);
+        } catch (NotEnoughGoldException e) {
+            System.out.println(e);
+        }
 
-        System.out.println(
-                item1.equals(item3)
-        );
+        try {
+            inventory.spendGold(5000);
+        } catch (NotEnoughGoldException e) {
+            System.out.println(e);
+        } finally {
+            System.out.println(
+                    "Текущий баланс: " +
+                    inventory.getGold()
+            );
+        }
 
-        System.out.println(
-                item1.hashCode()
-        );
+        try {
+            inventory.addGold(-100);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e);
+        }
 
-        System.out.println(
-                item2.hashCode()
-        );
+        int a1 = parseLevel("25");
+
+        try {
+            int a2 = parseLevel("abc");
+        } catch (NumberFormatException e) {
+            System.out.println(e);
+        }
     }
+
+
+
 }
