@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 class Main {
     static  int parseLevel(String text) {
@@ -180,7 +178,7 @@ class Main {
 
         for (Integer i : numbers) {
             System.out.println(i);
-        } */
+        }
 
 
         SkillBook skillBook = new SkillBook();
@@ -260,6 +258,58 @@ class Main {
 
         for (GameItem item : uniqueItems) {
             System.out.println(item);
+        }
+
+        */
+
+        GameCharacter a1 = new Warrior(
+                "a1", 100, 50
+        );
+
+        GameCharacter a2 = new Mage(
+                "a2", 100, 50
+        );
+
+        GameCharacter a3 = new Archer(
+                "a3", 100, 50
+        );
+
+        GameScoreBoard scoreBoard = new GameScoreBoard();
+
+        scoreBoard.addPlayer(a1.getName());
+        scoreBoard.addPlayer(a2.getName());
+        scoreBoard.addPlayer(a3.getName());
+
+        scoreBoard.addPoints(a1.getName(), 10);
+        scoreBoard.addPoints(a1.getName(), 15);
+        scoreBoard.addPoints(a2.getName(), 20);
+
+        scoreBoard.addPlayer(a2.getName());
+
+        scoreBoard.printScoreBoard();
+
+        scoreBoard.isPlayer(a1.getName());
+        scoreBoard.isPlayer("123");
+
+        scoreBoard.removePLayer(a2.getName());
+
+        String[] x = {
+                "apple",
+                "banana",
+                "apple",
+                "orange",
+                "banana",
+                "apple"
+        };
+
+        Map<String, Integer> m = new HashMap<>();
+
+        for (String string : x) {
+            m.put(string, m.getOrDefault(string, 0) + 1);
+        }
+
+        for (String s : m.keySet()) {
+            System.out.println(s + " -> " + m.get(s));
         }
     }
 }
