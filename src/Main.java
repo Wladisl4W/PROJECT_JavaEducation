@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 class Main {
     static  int parseLevel(String text) {
@@ -116,7 +118,7 @@ class Main {
             int a2 = parseLevel("abc");
         } catch (NumberFormatException e) {
             System.out.println(e);
-        } */
+        }
 
         Inventory inventory = new Inventory();
 
@@ -178,7 +180,86 @@ class Main {
 
         for (Integer i : numbers) {
             System.out.println(i);
-        }
+        } */
 
+
+        SkillBook skillBook = new SkillBook();
+
+        System.out.println(
+                skillBook.learnSkill("Fireball")
+        );
+
+        System.out.println(
+                skillBook.learnSkill("Heal")
+        );
+
+        System.out.println(
+                skillBook.learnSkill("Teleport")
+        );
+
+        System.out.println(
+                skillBook.learnSkill("Fireball")
+        );
+
+        System.out.println(
+                skillBook.getSkillsCount()
+        );
+
+        skillBook.printSkills();
+
+        System.out.println(
+                skillBook.hasSkill("Heal")
+        );
+
+        System.out.println(
+                skillBook.hasSkill("Ice Storm")
+        );
+
+        skillBook.forgetSkill("Heal");
+        skillBook.printSkills();
+
+        Set<GameItem> uniqueItems = new HashSet<>();
+
+        GameItem sword1 =
+                new GameItem(
+                        "Dragon Sword",
+                        10,
+                        "Legendary"
+                );
+
+        GameItem sword2 =
+                new GameItem(
+                        "Dragon Sword",
+                        10,
+                        "Legendary"
+                );
+
+        GameItem bow =
+                new GameItem(
+                        "Elven Bow",
+                        7,
+                        "Epic"
+                );
+
+        System.out.println(
+                uniqueItems.add(sword1)
+        );
+
+        System.out.println(
+                uniqueItems.add(sword2)
+        );
+
+        System.out.println(
+                uniqueItems.add(bow)
+        );
+
+        System.out.println(
+                "Количество: " +
+                        uniqueItems.size()
+        );
+
+        for (GameItem item : uniqueItems) {
+            System.out.println(item);
+        }
     }
 }
