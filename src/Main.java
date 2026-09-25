@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 class Main {
     static  int parseLevel(String text) {
         return Integer.parseInt(text);
@@ -81,7 +83,7 @@ class Main {
         GameItem item4 = item1;
 
         System.out.println(item1 == item4);      // true
-        System.out.println(item1.equals(item4)); // true */
+        System.out.println(item1.equals(item4)); // true
 
         Inventory inventory = new Inventory(1000);
         inventory.addGold(500);
@@ -114,9 +116,69 @@ class Main {
             int a2 = parseLevel("abc");
         } catch (NumberFormatException e) {
             System.out.println(e);
+        } */
+
+        Inventory inventory = new Inventory();
+
+        GameItem sword =
+                new GameItem(
+                        "Dragon Sword",
+                        10,
+                        "Legendary"
+                );
+
+        GameItem potion =
+                new GameItem(
+                        "Health Potion",
+                        1,
+                        "Common"
+                );
+
+        GameItem bow =
+                new GameItem(
+                        "Elven Bow",
+                        7,
+                        "Epic"
+                );
+
+        inventory.addItem(sword);
+        inventory.addItem(potion);
+        inventory.addItem(bow);
+
+        inventory.printItems();
+
+        GameItem anotherSword =
+                new GameItem(
+                        "Dragon Sword",
+                        10,
+                        "Legendary"
+                );
+
+
+        System.out.println(sword == anotherSword);
+
+        System.out.println(
+                inventory.containsItem(anotherSword)
+        );
+
+        inventory.removeItem(anotherSword);
+        inventory.printItems();
+
+        ArrayList<Integer> numbers = new ArrayList<>();
+
+        for (int i = 10; i <= 50; i+=10) {
+            numbers.add(i);
         }
+
+        for (Integer i : numbers) {
+            System.out.println(i);
+        }
+
+        numbers.remove(Integer.valueOf(30));
+
+        for (Integer i : numbers) {
+            System.out.println(i);
+        }
+
     }
-
-
-
 }

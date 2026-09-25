@@ -30,4 +30,8 @@ public class GameItem {
     public int hashCode() {
         return Objects.hash(name, level, rarity);
     }
+
+    public String getName() {
+        return name;
+    }
 }

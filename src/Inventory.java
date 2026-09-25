@@ -1,38 +1,34 @@
+import java.util.List;
+import java.util.ArrayList;
+
 public class Inventory {
-    private int gold;
+    private final ArrayList<GameItem> items = new ArrayList<>();
 
-    public Inventory(int gold) {
-        if (gold < 0) {
-            throw new IllegalArgumentException(
-                    "Начальное количество золота не может быть отрицательным"
-            );
-        }
-        this.gold = gold;
+
+    void addItem(GameItem item) {
+        items.add(item);
+        System.out.println("Предмет добавлен: " + item.getName());
     }
 
-    void spendGold(int amount) throws NotEnoughGoldException {
-        if (amount <= 0) {
-            throw new IllegalArgumentException(
-                    "Сумма снятия должна быть > 0"
-            );
+    void printItems() {
+        if (items.isEmpty()) {
+            System.out.println("Инвентарь пуст!");
+            return;
         }
-        if (amount > this.gold) {
-            throw new NotEnoughGoldException("Недостаточно денег!");
+        for (GameItem item : items) {
+            System.out.println(item.toString());
         }
-        this.gold -= amount;
     }
 
-    public void addGold(int amount) {
-        if (amount < 0)
-        {
-            throw new IllegalArgumentException(
-                    "Ты дебил!"
-            );
-        }
-        this.gold += amount;
+    int getItemCount() {
+        return items.size();
     }
 
-    public int getGold() {
-        return gold;
+    boolean containsItem(GameItem item) {
+        return items.contains(item);
+    }
+
+    boolean removeItem(GameItem item) {
+        return items.remove(item);
     }
 }
