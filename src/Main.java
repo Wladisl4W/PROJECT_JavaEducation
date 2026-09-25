@@ -288,10 +288,10 @@ class Main {
 
         scoreBoard.printScoreBoard();
 
-        scoreBoard.isPlayer(a1.getName());
-        scoreBoard.isPlayer("123");
+        System.out.println(scoreBoard.isPlayer(a1.getName()));
+        System.out.println(scoreBoard.isPlayer("123"));
 
-        scoreBoard.removePLayer(a2.getName());
+        scoreBoard.removePlayer(a2.getName());
 
         String[] x = {
                 "apple",

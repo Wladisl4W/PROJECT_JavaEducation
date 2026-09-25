@@ -10,7 +10,7 @@ public class GameScoreBoard {
     }
 
     public void addPoints(String player, Integer points) {
-        scoreBoard.put(player, scoreBoard.get(player) + points);
+        scoreBoard.put(player, scoreBoard.getOrDefault(player, 0) + points);
     }
 
     public int getPoints(String player) {
@@ -21,7 +21,7 @@ public class GameScoreBoard {
         return scoreBoard.containsKey(player);
     }
 
-    public void removePLayer(String player) {
+    public void removePlayer(String player) {
         scoreBoard.remove(player);
     }
 
